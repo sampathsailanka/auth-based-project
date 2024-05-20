@@ -2,13 +2,12 @@ require("dotenv").config();
 
 const Hapi = require("@hapi/hapi");
 const HapiCookie = require("@hapi/cookie");
-
 const {
-  loginRoute,
-  mainRoute,
-  logoutRoute,
   validateFunc,
-} = require("./handler");
+  loginRoute,
+  logoutRoute,
+  mainRoute,
+} = require("./controller");
 
 const init = async () => {
   const server = Hapi.server({
@@ -20,7 +19,7 @@ const init = async () => {
 
   server.auth.strategy("session", "cookie", {
     cookie: {
-      name: "user",
+      name: "session",
       password: process.env.IRON_PASSWORD,
       isSecure: false,
       isHttpOnly: true,
@@ -37,7 +36,7 @@ const init = async () => {
       method: "GET",
       path: "/",
       handler: (req, h) => {
-        return "Hello World!!! from hapi";
+        return "Hello World!! :) from session-hapi";
       },
       options: {
         auth: false,

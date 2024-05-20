@@ -6,15 +6,13 @@ const users = [
   { name: "ravi", password: "secret3" },
 ];
 
-const ironPassword = "Fg%eKa>&:[nH;_Z+D^G-vt2~zh=fxRV'";
-
 async function encrypt(obj) {
-  return await Iron.seal(obj, ironPassword, Iron.defaults);
+  return await Iron.seal(obj, process.env.IRON_PASSWORD, Iron.defaults);
 }
 
 async function decrypt(sealed) {
   try {
-    return await Iron.unseal(sealed, ironPassword, Iron.defaults);
+    return await Iron.unseal(sealed, process.env.IRON_PASSWORD, Iron.defaults);
   } catch (err) {
     return null;
   }
