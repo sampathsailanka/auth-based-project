@@ -6,7 +6,6 @@ const {
   loginRoute,
   mainRoute,
   logoutRoute,
-  refreshRoute,
   isAuthenticated,
 } = require("./controllers");
 const cookieParser = require("cookie-parser");
@@ -23,8 +22,6 @@ app.post("/login", loginRoute);
 app.get("/main", isAuthenticated, mainRoute);
 
 app.get("/logout", isAuthenticated, logoutRoute);
-
-app.get("/refresh", isAuthenticated, refreshRoute);
 
 app.use((err, req, res, next) => {
   console.log(err.stack);
