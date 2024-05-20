@@ -73,7 +73,6 @@ const mainRoute = handleErrors(async (req, res) => {
 
 module.exports = {
   loginRoute,
-  refreshRoute,
   logoutRoute,
   mainRoute,
   isAuthenticated,
