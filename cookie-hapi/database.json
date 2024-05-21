@@ -1,0 +1,21 @@
+{
+    "dev": {
+        "driver": "pg",
+        "user": {
+            "ENV": "USER"
+        },
+        "host": {
+            "ENV": "HOST"
+        },
+        "port": {
+            "ENV": "DB_PORT"
+        },
+        "database": {
+            "ENV": "DATABASE"
+        },
+        "ssl": false,
+        "connectionString": {
+            "ENV": "CONNECTION_STRING"
+        }
+    }
+}

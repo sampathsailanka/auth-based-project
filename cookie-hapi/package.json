@@ -13,6 +13,10 @@
     "@hapi/cookie": "^12.0.1",
     "@hapi/hapi": "^21.3.9",
     "@hapi/iron": "^7.0.1",
-    "dotenv": "^16.4.5"
+    "bcrypt": "^5.1.1",
+    "db-migrate": "^0.11.14",
+    "db-migrate-cockroachdb": "^5.7.2",
+    "dotenv": "^16.4.5",
+    "pg": "^8.11.5"
   }
 }

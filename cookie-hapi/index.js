@@ -8,6 +8,7 @@ const {
   mainRoute,
   logoutRoute,
   validateFunc,
+  registerRoute,
 } = require("./handler");
 
 const init = async () => {
@@ -47,6 +48,14 @@ const init = async () => {
       method: "GET",
       path: "/main",
       handler: mainRoute,
+    },
+    {
+      method: "POST",
+      path: "/register",
+      handler: registerRoute,
+      options: {
+        auth: false,
+      },
     },
     {
       method: "POST",
