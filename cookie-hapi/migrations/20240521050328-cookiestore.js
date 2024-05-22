@@ -1,21 +1,8 @@
 "use strict";
 
-var dbm;
-var type;
-var seed;
-
-/**
- * We receive the dbmigrate dependency from dbmigrate initially.
- * This enables us to not have to rely on NODE_PATH.
- */
-exports.setup = function (options, seedLink) {
-  dbm = options.dbmigrate;
-  type = dbm.dataType;
-  seed = seedLink;
-};
-
-exports.up = function (db) {
-  return db.createTable("users", {
+exports.migrate = async (db, opt) => {
+  const type = opt.dbm.dataType;
+  await db.createTable("users", {
     id: {
       type: "uuid",
       primaryKey: true,
@@ -33,10 +20,6 @@ exports.up = function (db) {
   });
 };
 
-exports.down = function (db) {
-  return db.dropTable("users", { ifExists: true });
-};
-
 exports._meta = {
-  version: 1,
+  version: 2,
 };
